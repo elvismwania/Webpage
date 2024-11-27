@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Interactive Page</title>
+</head>
+<body>
+    <h1>You are a very bad person</h1>
+    <p>Enjoy exploring the features!</p>
+    
+    <!-- Feature 1: Greeting Button -->
+    <button onclick="alert('Hello, welcome to my page!')">Click Me</button>
+
+    <!-- Feature 2: Input Field for User Name -->
+    <p>naitwa mutiso:</p>
+    <input type="text" id="nameInput" placeholder="Your Name">
+    <button onclick="greet()">Submit</button>
+    <p id="greeting"></p>
+
+    <!-- Feature 3: Background Color Picker -->
+    <p>Choose a background color:</p>
+    <select id="colorPicker" onchange="changeBackgroundColor()">
+        <option value="white">White</option>
+        <option value="lightblue">Light Blue</option>
+        <option value="lightgreen">Light Green</option>
+        <option value="lightyellow">Light Yellow</option>
+    </select>
+
+    <!-- Extra Feature: Live Digital Clock -->
+    <h2>Current Time:</h2>
+    <p id="clock" style="font-size: 1.5em; font-weight: bold;"></p>
+
+    <script>
+        // Function for Greeting
+        function greet() {
+            const name = document.getElementById('nameInput').value;
+            document.getElementById('greeting').innerText = `Hello, ${name}!`;
+        }
+
+        // Function to Change Background Color
+        function changeBackgroundColor() {
+            const color = document.getElementById('colorPicker').value;
+            document.body.style.backgroundColor = color;
+        }
+
+        // Function for Live Clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('clock').innerText = timeString;
+        }
+
+        // Update clock every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Initialize immediately
+    </script>
+</body>
+</html>
