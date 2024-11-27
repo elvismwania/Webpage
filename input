@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Interactive Page</title>
+</head>
+<body>
+    <h1>Welcome to My Page</h1>
+    <p>Enjoy exploring the features!</p>
+    
+    <button onclick="alert('Hello, welcome to my page!')">Click Me</button>
+
+    <!-- Added Feature -->
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput" placeholder="Your Name">
+    <button onclick="greet()">Submit</button>
+    <p id="greeting"></p>
+
+    <script>
+        function greet() {
+            const name = document.getElementById('nameInput').value;
+            document.getElementById('greeting').innerText = `Hello, ${name}!`;
+        }
+    </script>
+</body>
+</html>
