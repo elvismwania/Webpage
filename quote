@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Interactive Page</title>
+    <style>
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Page</h1>
+    <p>Enjoy exploring the features!</p>
+    
+    <button onclick="alert('Hello, welcome to my page!')">Click Me</button>
+
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput" placeholder="Your Name">
+    <button onclick="greet()">Submit</button>
+    <p id="greeting"></p>
+
+    <p>Choose a background color:</p>
+    <select id="colorPicker" onchange="changeBackgroundColor()">
+        <option value="white">White</option>
+        <option value="lightblue">Light Blue</option>
+        <option value="lightgreen">Light Green</option>
+        <option value="lightyellow">Light Yellow</option>
+    </select>
+
+    <h2>Current Time:</h2>
+    <p id="clock" style="font-size: 1.5em; font-weight: bold;"></p>
+
+    <p>Dark Mode:</p>
+    <label>
+        <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()"> Enable
+    </label>
+
+    <h2>Counter</h2>
+    <p id="counterValue">0</p>
+    <button onclick="incrementCounter()">Increment</button>
+    <button onclick="decrementCounter()">Decrement</button>
+
+    <!-- New Feature: Random Quote Generator -->
+    <h2>Inspirational Quote:</h2>
+    <p id="quoteDisplay">Click the button to see a quote!</p>
+    <button onclick="generateQuote()">Show Quote</button>
+
+    <script>
+        function greet() {
+            const name = document.getElementById('nameInput').value;
+            document.getElementById('greeting').innerText = `Hello, ${name}!`;
+        }
+
+        function changeBackgroundColor() {
+            const color = document.getElementById('colorPicker').value;
+            document.body.style.backgroundColor = color;
+        }
+
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString();
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        let counter = 0;
+        function incrementCounter() {
+            counter++;
+            document.getElementById('counterValue').innerText = counter;
+        }
+
+        function decrementCounter() {
+            counter--;
+            document.getElementById('counterValue').innerText = counter;
+        }
+
+        const quotes = [
+            "The luckiest dog ever to predict the future is to create it.",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+            "Don’t watch the clock; do what it does. Keep going.",
+            "Your limitation—it’s only your imagination.",
+            "Dream it. Wish it. Do it.",
+            "Success doesn’t just find you. You have to go out and get it."
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quoteDisplay').innerText = quotes[randomIndex];
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
