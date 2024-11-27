@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Interactive Page</title>
+</head>
+<body>
+    <h1>Welcome to My Page</h1>
+    <p>Enjoy exploring the features!</p>
+    
+    <button onclick="alert('Hello, welcome to my page!')">Click Me</button>
+
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput" placeholder="Your Name">
+    <button onclick="greet()">Submit</button>
+    <p id="greeting"></p>
+
+    <!-- Added Feature -->
+    <p>Choose a background color:</p>
+    <select id="colorPicker" onchange="changeBackgroundColor()">
+        <option value="white">White</option>
+        <option value="lightblue">Light Blue</option>
+        <option value="lightgreen">Light Green</option>
+        <option value="lightyellow">Light Yellow</option>
+    </select>
+
+    <script>
+        function greet() {
+            const name = document.getElementById('nameInput').value;
+            document.getElementById('greeting').innerText = `Hello, ${name}!`;
+        }
+
+        function changeBackgroundColor() {
+            const color = document.getElementById('colorPicker').value;
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
